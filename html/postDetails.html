@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>postDetails</title>
+        <link rel="stylesheet" href="/css/normalize.css">
+        <link rel="stylesheet" href="/fontawesome-free-6.4.2-web/css/all.min.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <script src="/node_modules/axios/dist/axios.min.js"></script>
+        <script src="/sweetAlert/dist/sweetalert2.all.min.js"></script>
+    </head>
+    <body>
+        <div class="loader-box">
+            <div class="lds-roller">
+                <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+            </div>
+        </div>
+        
+        <div class="overlayLogin" onclick="cancelAnyWindow()" style="display: none;">
+            <div class="box">
+                <h2>Login</h2>
+                <form>
+                    <span class="cancel" title="Cancel">X</span>
+                    <label>Username</label>
+                    <input type="text" id="username-login" placeholder="Write here">
+                    <label>Password</label>
+                    <input type="password" id="password-login" placeholder="Write here">
+                    <input type="button" value="Login" onclick="logInUserFun()">
+                </form>
+            </div>
+        </div>
+
+        <div class="overlayRegister" onclick="cancelAnyWindow()" style="display: none;">
+            <div class="box">
+                <h2>Register</h2>
+                <form>
+                    <span class="cancel" title="Cancel">X</span>
+                    <label>Username</label>
+                    <input type="text" id="username-register" placeholder="Write here">
+
+                    <label>Password</label>
+                    <input type="password" id="password-register" placeholder="Write here">
+
+                    <div class="imageInfo">
+                        <label>Image</label>
+                        <input type="checkbox" id="checkImage">
+                    </div>
+                    <input type="file" id="image-register">
+
+                    <label>Name</label>
+                    <input type="text" id="name-register" placeholder="Write here">
+                    <label>Email</label>
+                    <input type="email" id="email-register" placeholder="Write here">
+                    <input type="button" value="SignUp" onclick="signUpUserFun()">
+                </form>
+            </div>
+        </div>
+
+        <div class="overlayEditPost" onclick="cancelAnyWindow()" style="display: none;">
+            <div class="box">
+                <form>
+                    <span class="cancel" title="Cancel">X</span>
+                    <label>Title</label>
+                    <input type="text" id="edit-title" placeholder="Write here">
+        
+                    <label>Image</label>
+                    <input type="file" id="edit-image">
+        
+                    <label>Article</label>
+                    <textarea id="edit-article" placeholder="Write here"></textarea>
+
+                    <input type="button" value="Edit post" onclick="addNewPostOrEditOldPost()">
+                </form>
+            </div>
+        </div>
+
+        <div class="container">
+            <nav>
+                <div class="mega-menu" onclick="toggleDisplay()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <ul class="the-menu">
+                        <li class="act1" onclick="goHome()">Alhadidi</li>
+                        <li onclick="goHome()">Home</li>
+                        <li class="byMegeMenu">My profile</li>
+                    </ul>
+                </div>
+
+                <ul>
+                    <li class="act1" onclick="goHome()">Alhadidi</li>
+                    <li onclick="goHome()">Home</li>
+                    <li class="myProfile">My profile</li>
+                </ul>
+
+                <div class="buttons-box">
+                    <button onclick="loginFun()">Login</button>
+                    <button onclick="registerFun()">Register</button>
+                </div>
+
+                <div class="avatar-info" style="display: none;">
+                    <img src="" alt="Avatar">
+                    <h3></h3>
+                </div>
+
+                <button class="logout" onclick="logoutFun()" style="display: none;">Logout</button>
+            </nav>
+
+            <div class="posts-box">
+                <!-- <div class="post">
+                    <div class="user">
+                        <img class="avatar" src="/imgs/Avatar-10.jpeg" alt="Avatar"> <strong>Ahmad</strong>
+                    </div>
+                    <h3>Hello world</h3> <span>18 hours ago</span>
+                    <img class="the-image" src="/placeholder/img1.jpg" alt="Image">
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur quasi omnis animi natus exercitationem repudiandae quae saepe reprehenderit aliquam itaque? doloremque quod reiciendis ut, autem sunt maxime iusto nam. Perferendis asperiores ratione.</p>
+                    <div class="comments-and-tags">
+                        <i class="fa-solid fa-pen-nib"></i> (<b>3</b>) Comments
+                        <div class="tags">
+                            <span>policy</span>
+                            <span>economy</span>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="comments-box">
+                        <div class="comment">
+                            <div class="user-info">
+                                <img src="/imgs/Avatar-9.jpeg" alt="Avatar">
+                                <b>Hannan</b>
+                            </div>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore!</p>
+                        </div>
+                        <hr>
+                        <div class="comment">
+                            <div class="user-info">
+                                <img src="/imgs/Avatar-8.jpeg" alt="Avatar">
+                                <b>Doora</b>
+                            </div>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, eaque optio? Error, fugit similique?</p>
+                        </div>
+                        <hr>
+                        <div class="comment">
+                            <div class="user-info">
+                                <img src="/imgs/Avatar-1.jpg" alt="Avatar">
+                                <b>Osama</b>
+                            </div>
+                            <p>Lorem ipsum dolor sit amet consectetur</p>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+                <div class="write-box">
+                    <input type="text" id="comment-input" placeholder="Write here">
+                    <span class="send-botton">Send</span>
+                </div> -->
+            </div>
+        </div>
+    </body>
+    <script src="/js/sharedLogic.js"></script>
+    <script src="/js/postDetails.js"></script>
+</html>
